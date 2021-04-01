@@ -19,3 +19,10 @@ function getAPI() {
 function getFrame() {
     return getAPI().Frame
 }
+function getStack(progress) {
+    return getFrame().StackProgress[progress]
+
+}
+function getTask(progress,task) {
+    return getStack(progress).TaskProgress[task].Text
+}
