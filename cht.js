@@ -36,3 +36,13 @@ function grabTaskRequirements(progress,task) {
     return grabRequirements(getTask(progress,task))
 
 }
+
+function edgecht_init() {
+    
+    
+}
+
+if (typeof(window.edgecht) == 'undefined') {
+    window.edgecht = "init"
+    edgecht_init()
+}
