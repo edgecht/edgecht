@@ -26,3 +26,10 @@ function getStack(progress) {
 function getTask(progress,task) {
     return getStack(progress).TaskProgress[task].Text
 }
+function getTaskDoc(progress,task) {
+    return new DOMParser().parseFromString(getTask(progress,task),'text/xml')
+}
+function grabTaskRequirements(progress,task) {
+    return grabRequirements(getTask(progress,task))
+
+}
