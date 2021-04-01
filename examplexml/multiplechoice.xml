@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<question>
+    
+    <info>
+    	<type>MR</type>
+    	<displaymode /> <!-- DEPRECATED -->
+    	<description></description>
+    	<defaultmsg /> <!-- DEPRECATED -->
+        <scoremethod>end</scoremethod>
+    </info>
+    
+    
+    <content mtype="text/html" display='raw'><![CDATA[<div class="column">]]></content>
+    
+<content mtype="text/html"><![CDATA[<p>What does this passage suggest about the role of women in the traditional society? Check all that apply.</p>]]></content>
+    
+
+
+    
+        <choice id="92796" shuffle_id="0" shuffle_type="1" type="checkbox">
+            <content mtype="text/html"><![CDATA[Women and men jointly made the decisions regarding marriage and family.]]></content>
+        </choice>
+    
+        <choice id="92797" shuffle_id="0" shuffle_type="1" type="checkbox">
+            <content mtype="text/html"><![CDATA[Men made the decisions regarding marriage and women did not.]]></content>
+        </choice>
+    
+        <choice id="92798" shuffle_id="0" shuffle_type="1" type="checkbox">
+            <content mtype="text/html"><![CDATA[Women's feelings about love were not traditionally considered.]]></content>
+        </choice>
+    
+        <choice id="92799" shuffle_id="0" shuffle_type="1" type="checkbox">
+            <content mtype="text/html"><![CDATA[Women and men were always treated equally.]]></content>
+        </choice>
+    
+        <choice id="92800" shuffle_id="0" shuffle_type="1" type="checkbox">
+            <content mtype="text/html"><![CDATA[Women in traditional society wanted to change their role.]]></content>
+        </choice>
+    
+
+    <outcome points="1">
+        
+            
+                <expression>92796|SELECTED|false</expression>
+            
+                <expression>92797|SELECTED|true</expression>
+            
+                <expression>92798|SELECTED|true</expression>
+            
+                <expression>92799|SELECTED|false</expression>
+            
+                <expression>92800|SELECTED|false</expression>
+            
+        
+    </outcome>
+
+    <content mtype="text/html"><![CDATA[</div>]]></content>
+
+</question>

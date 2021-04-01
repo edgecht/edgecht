@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<question>
+    
+    <info>
+    	<type>sa</type>
+    	<displaymode /> <!-- DEPRECATED -->
+    	<description></description>
+    	<defaultmsg /> <!-- DEPRECATED -->
+        <scoremethod>end</scoremethod>
+    </info>
+    
+    <content mtype="text/html">
+        <![CDATA[<p>Read the passage from both the feminist and historical perspectives. In one paragraph, explain what each perspective reveals about the passage. Compare and contrast the similarities and differences of both the perspectives.</p>]]>
+    </content>
+    <choice type="text_area" id="0" height="150"/>
+    <outcome points="1">
+        
+        
+        <expression>0|INCLUDES|patriarch|0|INCLUDES|both|0|INCLUDES|however|0|INCLUDES|culture|0|INCLUDES|cultural|0|INCLUDES|tribe|0|INCLUDES|tribal|0|INCLUDES|woman|0|INCLUDES|women|0|INCLUDES|time|0|INCLUDES|tradition|0|INCLUDES|rule|0|INCLUDES|relation|0|INCLUDES|gender|0|INCLUDES|role|0|INCLUDES|time|0|INCLUDES|social|0|INCLUDES|political</expression>
+        
+    </outcome>
+
+</question>

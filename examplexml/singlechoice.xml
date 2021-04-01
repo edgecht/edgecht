@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<question>
+    
+        <questionLayout></questionLayout>
+    <info>
+    	<type>gmc</type>
+    	<displaymode /> <!-- DEPRECATED -->
+    	<description></description>
+    	<defaultmsg /> <!-- DEPRECATED -->
+        <scoremethod>end</scoremethod>
+    </info>
+    
+    
+    
+        
+<content mtype="text/html"><![CDATA[<p>What experiences in Achebe&#8217;s life led him to write the story?</p>]]></content>
+    
+    
+        
+            
+                
+
+<choicegroup id="155048" type="radio" display="block" display_mode="">
+    
+        <choice id="286286" display="block">
+            <content mtype="text/html"><![CDATA[As citizen of Nigeria and the US, Achebe was interested in the impact of western culture on Nigerian culture.]]></content>
+        </choice>
+    
+        <choice id="286287" display="block">
+            <content mtype="text/html"><![CDATA[As a university professor, Achebe was expected to write about his life in Nigeria.]]></content>
+        </choice>
+    
+        <choice id="286288" display="block">
+            <content mtype="text/html"><![CDATA[As an activist, Achebe was trying to change a Nigerian tradition to a western tradition.]]></content>
+        </choice>
+    
+        <choice id="286289" display="block">
+            <content mtype="text/html"><![CDATA[As a parent in the US, Achebe&#8217;s children had no experience of Nigerian culture.]]></content>
+        </choice>
+    
+</choicegroup>
+<outcome points="1">
+    
+        <expression>155048:286286|SELECTED|true</expression>
+    
+</outcome>
+
+            
+    
+
+</question>
