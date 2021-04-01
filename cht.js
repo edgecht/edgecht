@@ -8,8 +8,7 @@ function grabRequirements(xml) {
     if (!outcome) {
         return
     }
-    requires = Array.from(outcome.children)
-    requires = requires.map((x) => x.innerHTML)
+    requires = Array.from(outcome.children).map((x) => x.innerHTML)
     return requires
 }
 function fromID(progress,task,id) {
