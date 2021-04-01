@@ -12,3 +12,10 @@ function grabRequirements(xml) {
     requires = requires.map((x) => x.innerHTML)
     return requires
 }
+
+function getAPI() {
+    return document.querySelector("#stageFrame").contentWindow.API
+}
+function getFrame() {
+    return getAPI().Frame
+}
