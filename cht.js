@@ -12,7 +12,11 @@ function grabRequirements(xml) {
     requires = requires.map((x) => x.innerHTML)
     return requires
 }
-
+function fromID(progress,task,id) {
+    task = getTaskDoc(progress,task)
+    ida = id.split(":").pop()
+    return task.getElementById(ida)
+}
 function getAPI() {
     return document.querySelector("#stageFrame").contentWindow.API
 }
