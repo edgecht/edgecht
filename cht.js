@@ -38,7 +38,8 @@ function grabTaskRequirements(progress,task) {
 }
 
 function edgecht_init() {
-    
+    console.log("EDGECHT")
+    console.log("Because Edgenuity's Coders are garbage")
     
 }
 
