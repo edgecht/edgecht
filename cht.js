@@ -16,8 +16,19 @@ function fromID(progress,task,id) {
     ida = id.split(":").pop()
     return task.getElementById(ida)
 }
+
 function getAPI() {
-    return document.querySelector("#stageFrame").contentWindow.API
+    return getContentWindow().API
+}
+function getContentWindow() {
+    return $("#stageFrame")[0].contentWindow
+}
+function getInternalIFrame() {
+    return getContentWindow().$("#iFramePreview")[0].contentWindow
+}
+function getItemFromID(id) {
+    id = id.split(":").pop()
+    return getInternalIFrame().$("[value='"+id+"']")[0]
 }
 function getFrame() {
     return getAPI().Frame
