@@ -67,6 +67,7 @@ window.edgecht = {
   },
   parseTask: function (progress, task) {
     task = this.getTask(progress, task);
+    require = this.parseTaskRequirements(this.grabRequirements(task));
   },
   init: function () {
     if (this.isinit) {
