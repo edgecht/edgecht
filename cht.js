@@ -67,7 +67,7 @@ window.edgecht = {
   },
   parseTask: function (progress, task) {
     rawtask = this.getTaskDoc(progress, task);
-    requireTask = this.parseTaskRequirements(this.grabRequirements(task));
+    requireTask = this.parseTaskRequirements(this.grabRequirements(rawtask));
     task = {
       requirements: requiretask,
       type: rawtask.getElementsByTagName("type")[0].innerHTML
