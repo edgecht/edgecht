@@ -52,8 +52,6 @@ window.edgecht = {
     return this.grabRequirements(this.getTask(progress, task));
   },
   parseTaskRequirements: function (taskRequirements) {
-  // @TODO: add parsing logic
-  // @BODY combine all the requirements, then split by | then combine into parts with 3 sections, would be nice if they already parsed it in the code but im not looking for that
   taskreq = [];
     bigtask = taskRequirements.join("|").split("|");
     amountof = bigtask.length / 3 // amount of requirements
