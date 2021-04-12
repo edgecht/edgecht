@@ -51,10 +51,11 @@ function grabTaskRequirements(progress,task) {
 function edgecht_init() {
     console.log("EDGECHT")
     console.log("Because Edgenuity's Coders are garbage")
-    
+    //@TODO Actually do stuff here
+    //@Body lmao
 }
 
 if (typeof(window.edgecht) == 'undefined') {
-    window.edgecht = "init"
+    window.edgecht = {} // settings will go here in future, load from localstorage maybe?
     edgecht_init()
 }
