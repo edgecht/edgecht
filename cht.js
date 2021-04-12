@@ -54,17 +54,18 @@ window.edgecht = {
   parseTaskRequirements: function (taskRequirements) {
   // @TODO: add parsing logic
   // @BODY combine all the requirements, then split by | then combine into parts with 3 sections, would be nice if they already parsed it in the code but im not looking for that
-  bigtask = taskRequirements.join("|").split("|");
+  taskreq = [];
+    bigtask = taskRequirements.join("|").split("|");
     amountof = bigtask.length / 3 // amount of requirements
   for (task = 0; task < amountof; task++) {
     thistask = { 
       eleid: bigtask.shift(),
       type: bigtask.shift(),
       value: bigtask.shift()
-    }
-    console.log(thistask) // debugging 
-  }
-    
+    };
+    taskreq.append(thistask);
+  };
+    return taskreq
   },
   init: function () {
     if (this.isinit) {
