@@ -73,7 +73,8 @@ window.edgecht = {
     requireTask = this.parseTaskRequirements(this.grabRequirements(rawtask));
     task = {
       requirements: requireTask,
-      type: rawtask.getElementsByTagName("type")[0].innerHTML
+      type: rawtask.getElementsByTagName("type")[0].innerHTML,
+      question: this.removecdata(rawtask.getElementsByTagName("content")[1].innerHTML)
     };
     return task
   },
