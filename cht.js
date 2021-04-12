@@ -1,3 +1,6 @@
+// Edgecht
+// why would you keep the correct answers on the client?
+// just why
 window.edgecht = {
   isinit: false,
   grabRequirements: function (xml) {
@@ -51,7 +54,7 @@ window.edgecht = {
 
   init: function () {
     if (this.isinit) {
-      console.warn("Uh oh already started");
+      console.warn("Uh oh already started in this session");
       return;
     }
     console.log("EDGECHT");
