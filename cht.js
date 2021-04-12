@@ -4,7 +4,7 @@
 window.edgecht = {
   isinit: false,
   removecdata: function (data) {
-    return data.replace("<![CDATA[","").replace("]]>","")
+    return data.replace("<![CDATA[", "").replace("]]>", "");
   },
   grabRequirements: function (xml) {
     if (typeof xml == "string") {
@@ -20,9 +20,16 @@ window.edgecht = {
   formatXMLChoice: function (element) {
     return {
       id: element.getAttribute("id"),
-      type: element.hasAttribute("type") ? element.getAttribute("type") : "checkbox/radio",
-      contents: element.getElementsByTagName("content").length != 0 ? edgecht.removecdata(element.getElementsByTagName("content")[0].innerHTML) : null //why
-    }
+      type: element.hasAttribute("type")
+        ? element.getAttribute("type")
+        : "checkbox/radio",
+      contents:
+        element.getElementsByTagName("content").length != 0
+          ? edgecht.removecdata(
+              element.getElementsByTagName("content")[0].innerHTML
+            )
+          : null, // why
+    };
   },
   fromID: function (progress, task, id) {
     task = this.getTaskDoc(progress, task);
@@ -62,32 +69,36 @@ window.edgecht = {
     return this.grabRequirements(this.getTask(progress, task));
   },
   parseTaskRequirements: function (taskRequirements) {
-  taskreq = [];
+    taskreq = [];
     bigtask = taskRequirements.join("|").split("|");
-    amountof = bigtask.length / 3 // amount of requirements
-  for (task = 0; task < amountof; task++) {
-    thistask = { 
-      eleid: bigtask.shift(),
-      type: bigtask.shift(),
-      value: bigtask.shift()
-    };
-    taskreq.push(thistask);
-  };
-    return taskreq
+    amountof = bigtask.length / 3; // amount of requirements
+    for (task = 0; task < amountof; task++) {
+      thistask = {
+        eleid: bigtask.shift(),
+        type: bigtask.shift(),
+        value: bigtask.shift(),
+      };
+      taskreq.push(thistask);
+    }
+    return taskreq;
   },
   parseTask: function (progress, task) {
     rawtask = this.getTaskDoc(progress, task);
     requireTask = this.parseTaskRequirements(this.grabRequirements(rawtask));
-    contents = Array.from(rawtask.getElementsByTagName("content"))
+    contents = Array.from(rawtask.getElementsByTagName("content"));
     /*contents.pop() // remove ending div
     contents.shift() // remove start of div*/
     task = {
       requirements: requireTask,
       type: rawtask.getElementsByTagName("type")[0].innerHTML,
-      question: this.removecdata(contents[1].innerHTML), // this is garbage, fails sometimes, fix this by looking for one that doesnt start with <div> maybe?
-      answers: Array.from(rawtask.getElementsByTagName("choice")).map(this.formatXMLChoice)
+      question: this.removecdata(contents[1].innerHTML), // this is garbage, fails sometimes, fix this
+      // by looking for one that doesnt start with
+      // <div> maybe?
+      answers: Array.from(rawtask.getElementsByTagName("choice")).map(
+        this.formatXMLChoice
+      ),
     };
-    return task
+    return task;
   },
   init: function () {
     if (this.isinit) {
