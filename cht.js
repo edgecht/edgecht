@@ -63,7 +63,7 @@ window.edgecht = {
       type: bigtask.shift(),
       value: bigtask.shift()
     };
-    taskreq.append(thistask);
+    taskreq.push(thistask);
   };
     return taskreq
   },
