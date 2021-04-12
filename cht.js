@@ -21,7 +21,7 @@ window.edgecht = {
     return {
       id: element.getAttribute("id"),
       type: element.hasAttribute("type") ? element.getAttribute("type") : "checkbox",
-      contents: element.firstChild ? this.removecdata(element.firstChild.innerHTML) : null
+      contents: element.firstChild ? edgecht.removecdata(element.firstChild.innerHTML) : null //why
     }
   },
   fromID: function (progress, task, id) {
