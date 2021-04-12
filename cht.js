@@ -71,10 +71,14 @@ window.edgecht = {
   parseTask: function (progress, task) {
     rawtask = this.getTaskDoc(progress, task);
     requireTask = this.parseTaskRequirements(this.grabRequirements(rawtask));
+    contents = Array.from(rawtask.getElementsByTagName("content"))
+    contents.pop() // remove ending div
+    contents.shift() // remove start of div
     task = {
       requirements: requireTask,
       type: rawtask.getElementsByTagName("type")[0].innerHTML,
-      question: this.removecdata(rawtask.getElementsByTagName("content")[1].innerHTML)
+      question: this.removecdata(contents.shift().innerHTML),
+      answers: contents.map((x) => this.removecdata(x.innerHTMl))
     };
     return task
   },
