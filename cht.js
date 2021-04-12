@@ -50,7 +50,8 @@ window.edgecht = {
   },
 
   init: function () {
-    if (!this.isinit) {
+    if (this.isinit) {
+      console.warn("Uh oh already started");
       return;
     }
     console.log("EDGECHT");
