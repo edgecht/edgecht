@@ -66,8 +66,13 @@ window.edgecht = {
     return taskreq
   },
   parseTask: function (progress, task) {
-    task = this.getTask(progress, task);
-    require = this.parseTaskRequirements(this.grabRequirements(task));
+    rawtask = this.getTaskDoc(progress, task);
+    requireTask = this.parseTaskRequirements(this.grabRequirements(task));
+    task = {
+      requirements: requiretask,
+      type: rawtask.getElementsByTagName("type")[0].innerHTML
+    };
+    return task
   },
   init: function () {
     if (this.isinit) {
