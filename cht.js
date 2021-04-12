@@ -78,7 +78,7 @@ window.edgecht = {
       requirements: requireTask,
       type: rawtask.getElementsByTagName("type")[0].innerHTML,
       question: this.removecdata(contents.shift().innerHTML),
-      answers: contents.map((x) => this.removecdata(x.innerHTMl))
+      answers: contents.map((x) => this.removecdata(x.innerHTML))
     };
     return task
   },
