@@ -58,9 +58,9 @@ window.edgecht = {
     amountof = bigtask.length / 3 // amount of requirements
   for (task = 0; task < amountof; task++) {
     thistask = { 
-      eleid: bigtask.pop(),
-      type: bigtask.pop(),
-      value: bigtask.pop()
+      eleid: bigtask.shift(),
+      type: bigtask.shift(),
+      value: bigtask.shift()
     }
     console.log(thistask) // debugging 
   }
