@@ -3,6 +3,7 @@
 // just why
 window.edgecht = {
   isinit: false,
+  removecdata: new RegExp("<!\[CDATA\[(.+)\]\]>"),
   grabRequirements: function (xml) {
     if (typeof xml == "string") {
       xml = new DOMParser().parseFromString(xml, "text/xml");
