@@ -51,7 +51,10 @@ window.edgecht = {
   grabTaskRequirements: function (progress, task) {
     return this.grabRequirements(this.getTask(progress, task));
   },
-
+  parseTaskRequirements: function (taskRequirements) {
+  // @TODO: add parsing logic
+  // @BODY combine all the requirements, then split by | then combine into parts with 3 sections, would be nice if they already parsed it in the code but im not looking for that
+  }
   init: function () {
     if (this.isinit) {
       console.warn("Uh oh already started in this session");
