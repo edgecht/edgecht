@@ -1,9 +1,10 @@
 window.edgecht = {
+    isinit: false,
     grabRequirements: function (xml) {
     if (typeof(xml) == "string") {
         xml = new DOMParser().parseFromString(xml,"text/xml")
     }
-    outcome = xml.getElementsByTagName("outcome")[0]
+    outcome = xml.getElementsByTagName("outcome")[0];
     if (!outcome) {
         return
     }
@@ -48,13 +49,16 @@ grabTaskRequirements: function (progress,task) {
 },
 
 init: function () {
+    if (!this.isinit) {
+        return
+    }
     console.log("EDGECHT")
     console.log("Because Edgenuity's Coders are garbage")
+    this.isinit = true
     //@TODO Actually do stuff here
     //@Body lmao
 }
 }
-if (typeof(window.edgecht.isinit) == 'undefined') {
-    window.edgecht.isinit = true 
-    window.edgecht.init()
-}
+
+edgecht.init()
+
