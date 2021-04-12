@@ -17,6 +17,13 @@ window.edgecht = {
     requires = Array.from(outcome.children).map((x) => x.innerHTML);
     return requires;
   },
+  formatXMLChoice: function (element) {
+    return {
+      id: element.getAttribute("id"),
+      type: element.hasAttribute("type") ? element.getAttribute("type") : "checkbox",
+      contents: element.innerHTML
+    }
+  },
   fromID: function (progress, task, id) {
     task = this.getTaskDoc(progress, task);
     ida = id.split(":").pop();
@@ -78,7 +85,7 @@ window.edgecht = {
       requirements: requireTask,
       type: rawtask.getElementsByTagName("type")[0].innerHTML,
       question: this.removecdata(contents[1].innerHTML), // this is garbage, fails sometimes, fix this by looking for one that doesnt start with <div> maybe?
-      answers: Array.from(rawtask.getElementsByTagName("choice"))
+      answers: Array.from(rawtask.getElementsByTagName("choice")).map(this.formatXMLChoice)
     };
     return task
   },
