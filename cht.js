@@ -67,6 +67,9 @@ window.edgecht = {
   };
     return taskreq
   },
+  parseTask: function (progress, task) {
+    task = this.getTask(progress, task);
+  },
   init: function () {
     if (this.isinit) {
       console.warn("Uh oh already started in this session");
