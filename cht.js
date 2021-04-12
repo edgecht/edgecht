@@ -20,7 +20,7 @@ window.edgecht = {
   formatXMLChoice: function (element) {
     return {
       id: element.getAttribute("id"),
-      type: element.hasAttribute("type") ? element.getAttribute("type") : "checkbox",
+      type: element.hasAttribute("type") ? element.getAttribute("type") : "checkbox/radio",
       contents: element.getElementsByTagName("content").length != 0 ? edgecht.removecdata(element.getElementsByTagName("content")[0].innerHTML) : null //why
     }
   },
