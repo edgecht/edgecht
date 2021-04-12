@@ -91,6 +91,8 @@ window.edgecht = {
     task = {
       requirements: requireTask,
       type: rawtask.getElementsByTagName("type")[0].innerHTML,
+      // @TODO make this better
+      // @BODY great
       question: this.removecdata(contents[1].innerHTML), // this is garbage, fails sometimes, fix this
       // by looking for one that doesnt start with
       // <div> maybe?
