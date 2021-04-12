@@ -72,13 +72,13 @@ window.edgecht = {
     rawtask = this.getTaskDoc(progress, task);
     requireTask = this.parseTaskRequirements(this.grabRequirements(rawtask));
     contents = Array.from(rawtask.getElementsByTagName("content"))
-    contents.pop() // remove ending div
-    contents.shift() // remove start of div
+    /*contents.pop() // remove ending div
+    contents.shift() // remove start of div*/
     task = {
       requirements: requireTask,
       type: rawtask.getElementsByTagName("type")[0].innerHTML,
-      question: this.removecdata(contents.shift().innerHTML),
-      answers: contents.map((x) => this.removecdata(x.innerHTML))
+      question: this.removecdata(contents[1].innerHTML), // this is garbage, fails sometimes, fix this by looking for one that doesnt start with <div> maybe?
+      answers: Array.from(rawtask.getElementsByTagName("choice"))
     };
     return task
   },
