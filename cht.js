@@ -82,6 +82,11 @@ window.edgecht = {
     }
     return taskreq;
   },
+  createMessageForCorrectAnswer: function (progress, task) {
+    parsedTask = this.parseTask(progress,task)
+    // @TODO: finish createMessageForCorrectAnswer
+    // @BODY this function creates a message that explains which answer is correct, which can be shown to the end user lmao
+  },
   parseTask: function (progress, task) {
     rawtask = this.getTaskDoc(progress, task);
     requireTask = this.parseTaskRequirements(this.grabRequirements(rawtask));
