@@ -95,7 +95,7 @@ window.edgecht = {
         // Textbox
         break;
       default:
-        // Insert error message here
+        return "This question type is not supported. ("+parsedTask.type+")"
     }
     // @TODO: finish createMessageForCorrectAnswer
     // @BODY this function creates a message that explains which answer is correct, which can be shown to the end user lmao
