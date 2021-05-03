@@ -118,8 +118,16 @@ window.edgecht = {
         }
         return parsedTask.question + "<br>The correct answers are: <br> " + rightarr.join("<br>")
       case "gmc":
-        // Single Choice
-        return "Single Choice placeholder"
+        rightarr = []
+        rq = parsedTask.requirements
+        ans = parsedTask.answers
+        idof = rq[0].eleid
+        for (j = 0; j < ans.length; j++) {
+          if (ans[j].id == idof) {
+            correct = ans[j].content
+            }
+        }
+        return parsedTask.question + "<br>The correct answer is: <br> " + correct
       case "sa":
         // Textbox
         return "Textbox placeholder"
