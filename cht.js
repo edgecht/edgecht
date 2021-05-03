@@ -101,16 +101,20 @@ window.edgecht = {
     switch (parsedTask.type) {
       case "MR":
         // Multiple Choice
-        return "Multiple Choice placeholder"
-        break;
+        rq = parsedTask.requirements.map(x => x.value == "true")
+        rightarr = []
+        for (i = 0; i < rq.length; i++) {
+          if (rq[i]) {
+            rightarr.push(this.ordinal_suffix_of(i+1))
+          }
+        }
+        return parsedTask.question + "\nThe correct answers are " + rightarr.join(", ")
       case "gmc":
         // Single Choice
         return "Single Choice placeholder"
-        break;
       case "sa":
         // Textbox
         return "Textbox placeholder"
-        break;
       default:
         return "This question type is not supported. ("+parsedTask.type+")"
     }
@@ -139,7 +143,7 @@ window.edgecht = {
     return task;
   },
   displayUserMessage: function (progress, task) {
-    this.displayMessage(this.createMessageForCorrectAnswer(progress, task)) // temp before i get a ui lmao
+    this.displayMessage(this.createMessageForCorrectAnswer(progress, task))
   },
   displayMessage: function (message) {
     $( "#dialog-edgecht" ).text(message)
