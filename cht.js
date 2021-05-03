@@ -149,6 +149,8 @@ window.edgecht = {
     console.log("EDGECHT");
     console.log("Because Edgenuity's Coders are garbage");
     this.isinit = true;
+    $("body").append("<div id='dialog-edgecht' title='edgecht'>Placeholder</div>")
+    $( "#dialog-edgecht" ).dialog({ autoOpen: false });
     //@TODO Actually do stuff here
     //@Body lmao
   },
