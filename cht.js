@@ -1,6 +1,7 @@
 // Edgecht
 // why would you keep the correct answers on the client?
 // just why
+// this is not ok
 window.edgecht = {
   isinit: false,
   removecdata: function (data) {
