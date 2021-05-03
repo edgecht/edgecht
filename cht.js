@@ -101,16 +101,16 @@ window.edgecht = {
     switch (parsedTask.type) {
       case "MR":
         // Multiple Choice
-        rightarr = []
-        rq = parsedTask.requirements
-        ans = parsedTask.answers
+        rightarr = [];
+        rq = parsedTask.requirements;
+        ans = parsedTask.answers;
         for (i = 0; i < rq.length; i++) {
           if (rq[i].value == "true") {
-            idof = rq[i].eleid
+            idof = rq[i].eleid;
             for (j = 0; j < ans.length; j++) {
                if (ans[j].id == idof) {
-                rightarr.push(ans[j].contents)
-                break
+                rightarr.push(ans[j].contents);
+                break;
                }
             }
             
@@ -118,10 +118,10 @@ window.edgecht = {
         }
         return parsedTask.question + "<br>The correct answers are: <br> " + rightarr.join("<br>")
       case "gmc":
-        rightarr = []
-        rq = parsedTask.requirements
-        ans = parsedTask.answers
-        idof = rq[0].eleid
+        rightarr = [];
+        rq = parsedTask.requirements;
+        ans = parsedTask.answers;
+        idof = rq[0].eleid;
         for (j = 0; j < ans.length; j++) {
           if (ans[j].id == idof) {
             correct = ans[j].content
