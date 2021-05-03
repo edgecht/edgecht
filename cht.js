@@ -101,14 +101,22 @@ window.edgecht = {
     switch (parsedTask.type) {
       case "MR":
         // Multiple Choice
-        rq = parsedTask.requirements.map(x => x.value == "true")
         rightarr = []
+        rq = parsedTask.requirements
+        ans = parsedTask.answers
         for (i = 0; i < rq.length; i++) {
-          if (rq[i]) {
-            rightarr.push(this.ordinal_suffix_of(i+1))
+          if (rq[i].value == "true") {
+            idof = rq[i].eleid
+            for (j = 0; j < ans.length; j++) {
+               if (ans[j].id == idof) {
+                rightarr.push(ans[j].contents)
+                break
+               }
+            }
+            
           }
         }
-        return parsedTask.question + "\nThe correct answers are " + rightarr.join(", ")
+        return parsedTask.question + "<br>The correct answers are: <br> " + rightarr.join("<br>")
       case "gmc":
         // Single Choice
         return "Single Choice placeholder"
@@ -146,7 +154,7 @@ window.edgecht = {
     this.displayMessage(this.createMessageForCorrectAnswer(progress, task))
   },
   displayMessage: function (message) {
-    $( "#dialog-edgecht" ).text(message)
+    $( "#dialog-edgecht" ).html(message)
     $( "#dialog-edgecht" ).dialog("open")
   },
   init: function () {
