@@ -87,16 +87,20 @@ window.edgecht = {
     switch (parsedTask.type) {
       case "MR":
         // Multiple Choice
+        return "Multiple Choice placeholder'
         break;
       case "gmc":
         // Single Choice
+        return "Single Choice placeholder'
         break;
       case "sa":
         // Textbox
+        return "Textbox placeholder'
         break;
       default:
         return "This question type is not supported. ("+parsedTask.type+")"
     }
+    return "This question type is supported but something went wrong. ("+parsedTask.type+")" 
     // @TODO: finish createMessageForCorrectAnswer
     // @BODY this function creates a message that explains which answer is correct, which can be shown to the end user lmao
   },
