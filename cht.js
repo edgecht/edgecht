@@ -161,7 +161,7 @@ window.edgecht = {
       type: rawtask.getElementsByTagName("type")[0].innerHTML,
       // @TODO make this better
       // @BODY great
-      question: jQuery(this.removecdata(contents[1].innerHTML)).text(), // this is garbage, fails sometimes, fix this
+      question: jQuery("<div>"+this.removecdata(contents[1].innerHTML)+"</div>").text(), // this is garbage, fails sometimes, fix this
       // by looking for one that doesnt start with
       // <div> maybe?
       answers: Array.from(rawtask.getElementsByTagName("choice")).map(
