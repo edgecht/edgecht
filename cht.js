@@ -1,10 +1,27 @@
 // Edgecht
 // why would you keep the correct answers on the client?
 // just why
+// this is not ok
 window.edgecht = {
   isinit: false,
   removecdata: function (data) {
     return data.replace("<![CDATA[", "").replace("]]>", "");
+  },
+  ordinal_suffix_of: function (i) {
+    // from
+    // https://stackoverflow.com/questions/13627308/add-st-nd-rd-and-th-ordinal-suffix-to-a-number
+    var j = i % 10,
+      k = i % 100;
+    if (j == 1 && k != 11) {
+      return i + "st";
+    }
+    if (j == 2 && k != 12) {
+      return i + "nd";
+    }
+    if (j == 3 && k != 13) {
+      return i + "rd";
+    }
+    return i + "th";
   },
   grabRequirements: function (xml) {
     if (typeof xml == "string") {
@@ -82,6 +99,57 @@ window.edgecht = {
     }
     return taskreq;
   },
+  createMessageForCorrectAnswer: function (progress, task) {
+    parsedTask = this.parseTask(progress, task);
+    switch (parsedTask.type) {
+      case "MR":
+        // Multiple Choice
+        rightarr = [];
+        rq = parsedTask.requirements;
+        ans = parsedTask.answers;
+        for (i = 0; i < rq.length; i++) {
+          if (rq[i].value == "true") {
+            idof = rq[i].eleid;
+            for (j = 0; j < ans.length; j++) {
+              if (ans[j].id == idof) {
+                rightarr.push(ans[j].contents);
+                break;
+              }
+            }
+          }
+        }
+        return (
+          parsedTask.question +
+          "<br>The correct answers are: <br> " +
+          rightarr.join("<br>")
+        );
+        break;
+      case "gmc":
+        rightarr = [];
+        rq = parsedTask.requirements;
+        ans = parsedTask.answers;
+        idof = rq[0].eleid;
+        for (j = 0; j < ans.length; j++) {
+          if (ans[j].id == idof) {
+            correct = ans[j].content;
+          }
+        }
+        return (
+          parsedTask.question + "<br>The correct answer is: <br> " + correct
+        );
+        break;
+      default:
+        return "This question type is not supported. (" + parsedTask.type + ")";
+    }
+    return (
+      "This question type is supported but something went wrong. (" +
+      parsedTask.type +
+      ")"
+    );
+    // @TODO: finish createMessageForCorrectAnswer
+    // @BODY this function creates a message that explains which answer is
+    // correct, which can be shown to the end user lmao
+  },
   parseTask: function (progress, task) {
     rawtask = this.getTaskDoc(progress, task);
     requireTask = this.parseTaskRequirements(this.grabRequirements(rawtask));
@@ -93,7 +161,7 @@ window.edgecht = {
       type: rawtask.getElementsByTagName("type")[0].innerHTML,
       // @TODO make this better
       // @BODY great
-      question: this.removecdata(contents[1].innerHTML), // this is garbage, fails sometimes, fix this
+      question: jQuery(this.removecdata(contents[1].innerHTML)).text(), // this is garbage, fails sometimes, fix this
       // by looking for one that doesnt start with
       // <div> maybe?
       answers: Array.from(rawtask.getElementsByTagName("choice")).map(
@@ -101,6 +169,13 @@ window.edgecht = {
       ),
     };
     return task;
+  },
+  displayUserMessage: function (progress, task) {
+    this.displayMessage(this.createMessageForCorrectAnswer(progress, task));
+  },
+  displayMessage: function (message) {
+    $("#dialog-edgecht").html(message);
+    $("#dialog-edgecht").dialog("open");
   },
   init: function () {
     if (this.isinit) {
@@ -110,6 +185,10 @@ window.edgecht = {
     console.log("EDGECHT");
     console.log("Because Edgenuity's Coders are garbage");
     this.isinit = true;
+    $("body").append(
+      "<div id='dialog-edgecht' title='edgecht'>Placeholder</div>"
+    );
+    $("#dialog-edgecht").dialog({ autoOpen: false, show: true, hide: true });
     //@TODO Actually do stuff here
     //@Body lmao
   },
