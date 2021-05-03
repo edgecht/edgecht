@@ -139,7 +139,11 @@ window.edgecht = {
     return task;
   },
   displayUserMessage: function (progress, task) {
-    alert(this.createMessageForCorrectAnswer(progress, task)) // temp before i get a ui lmao
+    this.displayMessage(this.createMessageForCorrectAnswer(progress, task)) // temp before i get a ui lmao
+  },
+  displayMessage: function (message) {
+    $( "#dialog-edgecht" ).text(message)
+    $( "#dialog-edgecht" ).dialog("open")
   },
   init: function () {
     if (this.isinit) {
