@@ -117,7 +117,8 @@ window.edgecht = {
             
           }
         }
-        return parsedTask.question + "<br>The correct answers are: <br> " + rightarr.join("<br>")
+        return parsedTask.question + "<br>The correct answers are: <br> " + rightarr.join("<br>");
+        break;
       case "gmc":
         rightarr = [];
         rq = parsedTask.requirements;
@@ -128,7 +129,8 @@ window.edgecht = {
             correct = ans[j].content
             }
         }
-        return parsedTask.question + "<br>The correct answer is: <br> " + correct
+        return parsedTask.question + "<br>The correct answer is: <br> " + correct;
+        break;
       default:
         return "This question type is not supported. ("+parsedTask.type+")"
     }
