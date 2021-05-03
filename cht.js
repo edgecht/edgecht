@@ -119,12 +119,12 @@ window.edgecht = {
           }
         }
         return (
-          parsedTask.question +
           "<br>The correct answers are: <br> " +
           rightarr.join("<br>")
         );
         break;
       case "gmc":
+        debugger
         rightarr = [];
         rq = parsedTask.requirements;
         ans = parsedTask.answers;
@@ -135,7 +135,7 @@ window.edgecht = {
           }
         }
         return (
-          parsedTask.question + "<br>The correct answer is: <br> " + correct
+          "<br>The correct answer is: <br> " + correct
         );
         break;
       default:
