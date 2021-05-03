@@ -119,23 +119,22 @@ window.edgecht = {
           }
         }
         return (
-          "<br>The correct answers are: <br> " +
+          "The correct answers are: <br> " +
           rightarr.join("<br>")
         );
         break;
       case "gmc":
-        debugger
         rightarr = [];
         rq = parsedTask.requirements;
         ans = parsedTask.answers;
         idof = rq[0].eleid.split(":")[rq[0].eleid.split(":").length - 1]; // why
         for (j = 0; j < ans.length; j++) {
           if (ans[j].id == idof) {
-            correct = ans[j].content;
+            correct = ans[j].contents;
           }
         }
         return (
-          "<br>The correct answer is: <br> " + correct
+          "The correct answer is: <br> " + correct
         );
         break;
       default:
