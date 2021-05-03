@@ -84,6 +84,19 @@ window.edgecht = {
   },
   createMessageForCorrectAnswer: function (progress, task) {
     parsedTask = this.parseTask(progress,task)
+    switch (parsedTask.type) {
+      case "MR":
+        // Multiple Choice
+        break;
+      case "gmc":
+        // Single Choice
+        break;
+      case "sa":
+        // Textbox
+        break;
+      default:
+        // Insert error message here
+    }
     // @TODO: finish createMessageForCorrectAnswer
     // @BODY this function creates a message that explains which answer is correct, which can be shown to the end user lmao
   },
