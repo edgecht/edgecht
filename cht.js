@@ -128,7 +128,7 @@ window.edgecht = {
         rightarr = [];
         rq = parsedTask.requirements;
         ans = parsedTask.answers;
-        idof = rq[0].eleid;
+        idof = rq[0].eleid[rq[0].eleid.split(":").length - 1]; // why
         for (j = 0; j < ans.length; j++) {
           if (ans[j].id == idof) {
             correct = ans[j].content;
