@@ -128,9 +128,6 @@ window.edgecht = {
             }
         }
         return parsedTask.question + "<br>The correct answer is: <br> " + correct
-      case "sa":
-        // Textbox
-        return "Textbox placeholder"
       default:
         return "This question type is not supported. ("+parsedTask.type+")"
     }
