@@ -87,15 +87,15 @@ window.edgecht = {
     switch (parsedTask.type) {
       case "MR":
         // Multiple Choice
-        return "Multiple Choice placeholder'
+        return "Multiple Choice placeholder"
         break;
       case "gmc":
         // Single Choice
-        return "Single Choice placeholder'
+        return "Single Choice placeholder"
         break;
       case "sa":
         // Textbox
-        return "Textbox placeholder'
+        return "Textbox placeholder"
         break;
       default:
         return "This question type is not supported. ("+parsedTask.type+")"
