@@ -124,6 +124,7 @@ window.edgecht = {
         );
         break;
       case "gmc":
+      case "ma":
         rightarr = [];
         rq = parsedTask.requirements;
         ans = parsedTask.answers;
